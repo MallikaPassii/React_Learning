@@ -1,12 +1,12 @@
 import React, {Component} from 'react'
 import { render } from 'react-dom'
 
-/* let bookList = [
-  { "title": "Atlas Shrugged", "author":"Ayn Rand","pages":1000},
+let bookList = [
+  { "title": "Atlas Shrugged","pages":1000},
   { "title": "Angels Flight", "author":"Michael Connelly","pages":495}
 ]
 
-const Book = ({title,author,pages, freeBookmark}) => {
+const Book = ({title="No Autor Provided",author="No Author provided",pages=0, freeBookmark}) => {
   return (
     <section>
       <h2>{title}</h2>
@@ -28,6 +28,13 @@ const NotHiring = () =>
   </div>
 
 class Library extends Component {
+
+  static defaultProps = {
+    books: [
+      {"title":"Tahoe Tales","author":"Chet Whitley","pages":1000}
+    ]
+  }
+
   state = { 
     open: true, 
     freeBookmark: false,
@@ -83,9 +90,9 @@ class Library extends Component {
       </div>
     )
   }
-} */
+}
 
-class FavoriteColorForm extends Component{
+/* class FavoriteColorForm extends Component{
   state = {value: ''}
 
   newColor = e => 
@@ -107,9 +114,9 @@ class FavoriteColorForm extends Component{
       </form>
     )
   }
-}
+} */
 
 render(
-  <FavoriteColorForm />,
+  <Library books={bookList}/>,
   document.getElementById('root')
 )
