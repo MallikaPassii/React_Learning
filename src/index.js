@@ -1,10 +1,8 @@
 import React, {Component} from 'react'
 import { render } from 'react-dom'
+import PropTypes from 'prop-types'
 
-let bookList = [
-  { "title": "Atlas Shrugged","pages":1000},
-  { "title": "Angels Flight", "author":"Michael Connelly","pages":495}
-]
+let bookList = {}
 
 const Book = ({title="No Autor Provided",author="No Author provided",pages=0, freeBookmark}) => {
   return (
@@ -115,6 +113,16 @@ class Library extends Component {
     )
   }
 } */
+
+Library.propTypes = {
+  books:PropTypes.array
+}
+Book.propTypes = {
+  title: PropTypes.string,
+  author: PropTypes.string,
+  pages: PropTypes.number,
+  freeBookmark: PropTypes.bool
+}
 
 render(
   <Library books={bookList}/>,
